@@ -1,0 +1,15 @@
+.header-section{
+	background-color: #0077b6;
+	color: white;
+	padding: 0.7rem;
+}
+.header-wrap{
+	display: flex;
+	width: 80vw;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+.header-item{
+	font-size: 1.2rem;
+	letter-spacing: 0.1rem;
+}

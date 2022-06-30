@@ -1,15 +1,15 @@
-.header-section{
-	background-color: #0077b6;
-	color: white;
-	padding: 0.7rem;
-}
-.header-wrap{
-	display: flex;
+.section-header{
 	width: 80vw;
 	margin: 0 auto;
+	align-items: center;
 	justify-content: space-between;
+	/* background-color: #0096c7; */
+	color: white;
+	padding: 0 1rem;
+	border-radius: 0.5rem;
+
 }
-.header-item{
-	font-size: 1.2rem;
-	letter-spacing: 0.15rem;
+.body-section{
+	background-color: #caf0f8;
+	min-height: 100vh;
 }

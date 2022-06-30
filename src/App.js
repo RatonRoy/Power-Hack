@@ -1,10 +1,12 @@
 import Table from "./components/Pages/Table/Table";
+import Header from "./components/Shared/Header/Header";
 
 function App() {
   return (
-    <div className="">
-       <Table></Table>
-    </div>
+    <main>
+      <Header></Header>
+      <Table></Table>
+    </main>
   );
 }
 
