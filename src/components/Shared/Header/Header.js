@@ -7,7 +7,8 @@ const Header = () => {
 		<header className='header-section '>
 				<div className='header-wrap'>
 					<a className='header-item'>My Logo </a>
-					<p className='header-item'> Total Paid : </p>
+				<p className='header-item'> Total Paid : </p>
+				
 				</div>
 			</header>
 	);
