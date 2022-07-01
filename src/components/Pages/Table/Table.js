@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Table.css';
 import { useForm } from "react-hook-form";
 
 const Table = () => {
+	const [bills, setBills] = useState([]);
 	const { register, formState: { errors }, handleSubmit } = useForm();
 	const onSubmit = data => {
 
 		// console.log(data);
 		const name = data.name;
 		const email = data.email;
-		const phone = data.phone; 
+		const phone = data.phone;
 		const amount = data.amount;
 		console.log(name, email, phone, amount);
-		const url = `http://localhost:5000/api/add-billing`;
+		const url = `https://true-moose-88946.herokuapp.com/api/add-billing`;
 		fetch((url), {
 			method: 'POST',
 			headers: {
@@ -21,10 +22,23 @@ const Table = () => {
 			body: JSON.stringify(data)
 		})
 			.then(res => res.json())
-			.then(result => console.log(result));
+			.then(result => {
+				console.log(data)
+			});
+		window.location.reload();
 
 	};
-	// 
+	// call the api/billing-list 
+
+	useEffect(() => {
+		const url = `https://true-moose-88946.herokuapp.com/api/billing-list`;
+		fetch(url)
+			.then(res => res.json())
+			.then(data => {
+				setBills(data);
+			});
+	}, [])
+
 	return (
 		<section className='body-section'>
 			<header className='flex section-header bg-gray-800'>
@@ -174,41 +188,18 @@ const Table = () => {
 					</thead>
 					<tbody>
 						{/* <!-- row 1 --> */}
-						<tr>
-							<th>1</th>
-							<td>Cy Ganderton</td>
-							<td>Quality Control Specialist</td>
-							<td>Blue</td>
-							<td>Blue</td>
-							<td>Blue</td>
-						</tr>
-						{/* <!-- row 2 --> */}
-						<tr>
-							<th>2</th>
-							<td>Hart Hagerty</td>
-							<td>Desktop Support Technician</td>
-							<td>Purple</td>
-							<td>Purple</td>
-							<td>Purple</td>
-						</tr>
-						{/* <!-- row 3 --> */}
-						<tr>
-							<th>3</th>
-							<td>Brice Swyre</td>
-							<td>Tax Accountant</td>
-							<td>Red</td>
-							<td>Red</td>
-							<td>Red</td>
-						</tr>
-						{/* <!-- row 3 --> */}
-						<tr>
-							<th>3</th>
-							<td>Brice Swyre</td>
-							<td>Tax Accountant</td>
-							<td>Red</td>
-							<td>Red</td>
-							<td>Red</td>
-						</tr>
+						{
+							bills.map(bill => <tr key={bill._id}>
+
+								<th> {bill._id}</th>
+								<td> {bill.name} </td>
+								<td>{bill.email} </td>
+								<td>{bill.phone} </td>
+								<td> {bill.amount} </td>
+								<td> Edit Remove  </td>
+
+							</tr>)
+						}
 					</tbody>
 				</table>
 			</div>
