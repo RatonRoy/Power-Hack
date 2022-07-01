@@ -1,0 +1,26 @@
+[
+	{
+		"name" : "Jibon",
+		"email" : "jibor21@gmail.com",
+		"phone" : "0175467890",
+		"bill" : 780
+	},
+	{
+		"name" : "Raka",
+		"email" : "raka24@gmail.com",
+		"phone" : "0175478690",
+		"bill" : 990
+	},
+	{
+		"name" : "Akash",
+		"email" : "akash22@gmail.com",
+		"phone" : "0178976590",
+		"bill" : 987
+	},
+	{
+		"name" : "Sagor",
+		"email" : "sagor225@gmail.com",
+		"phone" : "0175467897",
+		"bill" : 1200
+	}
+]

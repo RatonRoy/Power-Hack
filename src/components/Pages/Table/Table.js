@@ -12,8 +12,19 @@ const Table = () => {
 		const phone = data.phone; 
 		const amount = data.amount;
 		console.log(name, email, phone, amount);
+		const url = `http://localhost:5000/api/add-billing`;
+		fetch((url), {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify(data)
+		})
+			.then(res => res.json())
+			.then(result => console.log(result));
 
 	};
+	// 
 	return (
 		<section className='body-section'>
 			<header className='flex section-header bg-gray-800'>
